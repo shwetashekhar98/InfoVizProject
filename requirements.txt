@@ -1,0 +1,9 @@
+streamlit
+dash
+diskcache
+yfinance
+plotly
+pandas
+numpy
+scikit-learn
+pip install -r requirements.txt
