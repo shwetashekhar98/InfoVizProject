@@ -15,9 +15,9 @@ An interactive dashboard for analyzing stock performance using **Streamlit** and
 
 ## Requirements
 - Python 3.7+
-- Install dependencies: `pip install -r requirements.txt`
+- Install dependencies: mentioned in requirements.txt
 
 ## How to Run
 1. Start the Streamlit app:
    ```bash
-   streamlit run streamlit_app.py
+   streamlit run infoviz.py
