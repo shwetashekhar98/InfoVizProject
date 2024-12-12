@@ -1,4 +1,5 @@
-# InfoVizProject
+# Masters Final Project for Information Visualization on yfinance dataset collaborated with @khwaab23
+
 
 # Stock Market Analysis Dashboard -- Link https://mastersinfovizproject.streamlit.app/
 
