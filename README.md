@@ -1,6 +1,6 @@
 # InfoVizProject
 
-# Stock and Sentiment Analysis Dashboard
+# Stock Market Analysis Dashboard -- Link https://mastersinfovizproject.streamlit.app/
 
 ## Description
 An interactive dashboard for analyzing stock performance using **Streamlit** and **Dash**. Includes:
@@ -21,3 +21,5 @@ An interactive dashboard for analyzing stock performance using **Streamlit** and
 1. Start the Streamlit app:
    ```bash
    streamlit run infoviz.py
+
+   
