@@ -2,6 +2,8 @@
 Overview
 This project aims to create a sophisticated information visualization tool for analyzing stock market data, focusing on the top 10 or top 20 stocks listed on the New York Stock Exchange (NYSE). It simplifies stock market analysis for the general public by providing clear and actionable insights, even for those without extensive financial knowledge.
 
+# Drive Link for recordings , code and final project report
+https://drive.google.com/drive/u/0/folders/1EewQwyZ2ykH8mg-uJzKBeBs2vHmGQ-C9
 
 # Stock Market Analysis Dashboard Link 
 https://mastersinfovizproject.streamlit.app/
