@@ -5,6 +5,10 @@ This project collaboratively developed by Shweta Shekhar and Khwaab Thareja, aim
 # Drive Link for recordings , code and final project report
 https://drive.google.com/drive/u/0/folders/1EewQwyZ2ykH8mg-uJzKBeBs2vHmGQ-C9
 
+## The Proposed solution and ppt also added for reference
+Refer to kt3180_ss19623_info_viz_submission.pptx
+Refer to ss19623_kt3180_PriorSurvey.pdf
+
 # Stock Market Analysis Dashboard Link 
 https://mastersinfovizproject.streamlit.app/
 
