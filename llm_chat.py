@@ -44,6 +44,6 @@ def getResponse(data_json, user_question):
             ],
         max_tokens=1000,
     )
-    return response
+    return response.content
 
 # print(response.choices[0].message.content)
