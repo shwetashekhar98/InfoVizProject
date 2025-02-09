@@ -256,7 +256,8 @@ def main():
 
     @st.cache_resource
     def init_connection():
-        return pymongo.MongoClient(st.secrets["mongo"]["uri"], serverSelectionTimeoutMS=10000)
+        return pymongo.MongoClient(st.secrets["mongo"]["uri"], serverSelectionTimeoutMS=10000,ssl=True,
+            ssl_cert_reqs=ssl.CERT_NONE)
 
     client = init_connection()
     db = client.get_database("chat_history")  # Replace with your actual database name
