@@ -9,6 +9,7 @@ import subprocess
 import os
 from threading import Thread
 import time
+import pymongo
 
 import llm_chat
 st.set_page_config(layout="wide")
@@ -229,6 +230,27 @@ def main():
     # ✅ Define `df_sample` only if df is properly initialized
     df_sample = df.sample(n=min(100, len(df)))  # Avoid errors if df has <100 rows
     data_json = df_sample.to_json(orient='records')
+
+
+    @st.cache_resource
+    def init_connection():
+        return pymongo.MongoClient(**st.secrets["mongo"])
+
+    client = init_connection()
+
+
+    @st.cache_data(ttl=600)
+    def get_data():
+        db = client.mydb
+        items = db.mycollection.find()
+        items = list(items)  # make hashable for st.cache_data
+        return items
+
+    items = get_data()
+
+    # Print results.
+    for item in items:
+        st.write(f"{item['name']} has a :{item['pet']}:")
 
     # Sidebar Chat History
     with st.sidebar.expander("💬 Chat with AI"):
