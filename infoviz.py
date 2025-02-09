@@ -241,8 +241,8 @@ def main():
 
     @st.cache_data(ttl=600)
     def get_data():
-        db = client.mydb
-        items = db.mycollection.find()
+        db = client.chat_history
+        items = db.sample_airbnb.find()
         items = list(items)  # make hashable for st.cache_data
         return items
 
