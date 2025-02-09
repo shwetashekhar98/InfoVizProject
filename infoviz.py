@@ -10,6 +10,8 @@ import os
 from threading import Thread
 import time
 import pymongo
+import ssl
+
 
 import llm_chat
 st.set_page_config(layout="wide")
