@@ -9,7 +9,6 @@ import subprocess
 import os
 from threading import Thread
 import time
-import pymongo
 
 
 
@@ -234,25 +233,25 @@ def main():
     data_json = df_sample.to_json(orient='records')
 
 
-    @st.cache_resource
-    def init_connection():
-        return pymongo.MongoClient(**st.secrets["mongo"],serverSelectionTimeoutMS=30000)
+    # @st.cache_resource
+    # def init_connection():
+    #     return pymongo.MongoClient(**st.secrets["mongo"],serverSelectionTimeoutMS=30000)
 
-    client = init_connection()
+    # client = init_connection()
 
 
-    @st.cache_data(ttl=600)
-    def get_data():
-        db = client.chat_history
-        items = db.sample_airbnb.find()
-        items = list(items)  # make hashable for st.cache_data
-        return items
+    # @st.cache_data(ttl=600)
+    # def get_data():
+    #     db = client.chat_history
+    #     items = db.sample_airbnb.find()
+    #     items = list(items)  # make hashable for st.cache_data
+    #     return items
 
-    items = get_data()
+    # items = get_data()
 
-    # Print results.
-    for item in items:
-        st.write(f"{item['name']} has a :{item['pet']}:")
+    # # Print results.
+    # for item in items:
+    #     st.write(f"{item['name']} has a :{item['pet']}:")
 
 
 
