@@ -232,25 +232,52 @@ def main():
     data_json = df_sample.to_json(orient='records')
 
 
+    # @st.cache_resource
+    # def init_connection():
+    #     return pymongo.MongoClient(**st.secrets["mongo"])
+
+    # client = init_connection()
+
+
+    # @st.cache_data(ttl=600)
+    # def get_data():
+    #     db = client.chat_history
+    #     items = db.sample_airbnb.find()
+    #     items = list(items)  # make hashable for st.cache_data
+    #     return items
+
+    # items = get_data()
+
+    # # Print results.
+    # for item in items:
+    #     st.write(f"{item['name']} has a :{item['pet']}:")
+
+
+
     @st.cache_resource
     def init_connection():
-        return pymongo.MongoClient(**st.secrets["mongo"])
+        return pymongo.MongoClient(st.secrets["mongo"]["uri"], serverSelectionTimeoutMS=10000)
 
     client = init_connection()
-
+    db = client.get_database("chat_history")  # Replace with your actual database name
+    collection = db["sample_airbnb"]  # Replace with your actual collection name
 
     @st.cache_data(ttl=600)
     def get_data():
-        db = client.chat_history
-        items = db.sample_airbnb.find()
-        items = list(items)  # make hashable for st.cache_data
-        return items
+        try:
+            items = list(collection.find())  # Fetch data from MongoDB
+            return items
+        except Exception as e:
+            st.error(f"❌ Error fetching data: {e}")
+            return []
 
     items = get_data()
 
-    # Print results.
-    for item in items:
-        st.write(f"{item['name']} has a :{item['pet']}:")
+    # Print results if data is retrieved
+    if items:
+        for item in items:
+            st.write(item)
+
 
     # Sidebar Chat History
     with st.sidebar.expander("💬 Chat with AI"):
