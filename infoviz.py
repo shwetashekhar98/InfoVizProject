@@ -10,7 +10,7 @@ import os
 from threading import Thread
 import time
 import pymongo
-import ssl
+
 
 
 import llm_chat
