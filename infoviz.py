@@ -236,7 +236,7 @@ def main():
 
     @st.cache_resource
     def init_connection():
-        return pymongo.MongoClient(**st.secrets["mongo"])
+        return pymongo.MongoClient(**st.secrets["mongo"],serverSelectionTimeoutMS=30000)
 
     client = init_connection()
 
